@@ -21,6 +21,34 @@ function App() {
 
           element: <Home />,
         },
+        {
+          path: "/user/login",
+          element: <Login />,
+        },
+        {
+          path: "/user/register",
+          element: <Register />,
+        },
+        {
+          path: "/user/profile",
+          element: <Profile />,
+        },
+        {
+          path: "/user/password/reset",
+          element: <ForgetPass />,
+        },
+        {
+          path: "/admin",
+          element: <Admin />,
+        },
+        {
+          path: "/seller",
+          element: <Seller />,
+        },
+        {
+          path: "/buyer",
+          element: <Buyer />,
+        },
       ],
     },
     { path: "*", element: <h1 className="text-center mt-5">Not Found!</h1> },
