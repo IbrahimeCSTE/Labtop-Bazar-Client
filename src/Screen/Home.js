@@ -7,6 +7,7 @@ import Adsvertisement from "./Adsvertisement";
 import ReactCardFlip from "react-card-flip";
 import Footer from "../Component/Footer/Footer";
 import toast, { Toaster } from "react-hot-toast";
+import Faq from "./Faq";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -256,12 +257,12 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       <div>
         {showModal && (
           <Modal setModalData={setModalData} modalData={modalData} />
         )}
       </div>
+      <Faq />
       <Footer />
       <Toaster />
     </div>
