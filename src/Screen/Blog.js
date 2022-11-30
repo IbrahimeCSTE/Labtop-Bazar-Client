@@ -2,7 +2,7 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div className="">
+    <div className="max-h-screen-lg">
       <div className="mb-10 dark:bg-gray-800 dark:text-gray-100 py-5">
         <div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-900">
           <div className="mt-3 mb-10">

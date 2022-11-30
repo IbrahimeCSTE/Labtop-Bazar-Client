@@ -46,41 +46,28 @@ const Navbar = () => {
               <li>
                 <Link to="/blog">Blog</Link>
               </li>
-            </ul>
-            <div className="navbar-end hidden lg:flex">
-              {user ? (
-                <div className="dropdown dropdown-end">
-                  <label tabIndex={0} className="btn btn-ghost rounded-btn">
-                    <i className="fas mx-2 fa-2x fa-user-circle"></i>
-                    {user?.user?.name}
-                  </label>
-                  <ul
-                    tabIndex={0}
-                    className="menu text-dark dropdown-content p-2 shadow bg-base-500 rounded-box w-52 "
+              <li className="my-2">
+                {user && (
+                  <Link to={`/${user?.user?.rol}`} className="pb-1">
+                    Dashboard
+                  </Link>
+                )}
+              </li>
+              <li>
+                {user ? (
+                  <button
+                    onClick={logOut}
+                    className="btn btn-sm pb-1 text-white"
                   >
-                    <li className="my-2">
-                      <Link
-                        to={`/${user?.user?.rol}`}
-                        className="btn btn-sm btn-info pb-1"
-                      >
-                        Dashboard
-                      </Link>
-                    </li>
-                    <li className="my-2">
-                      <button onClick={logOut} className="btn btn-sm pb-1">
-                        Logout
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              ) : (
-                <div>
-                  <Link to="/user/login" className="btn btn-sm mx-5">
+                    Logout
+                  </button>
+                ) : (
+                  <Link to="/user/login" className="btn btn-sm mx-5 text-white">
                     Login
                   </Link>
-                </div>
-              )}
-            </div>
+                )}
+              </li>
+            </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
             <i className="fas mx-2 fa-laptop-code"></i>Laptop Bazar
@@ -119,7 +106,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className="my-2">
-                  <button onClick={logOut} className="btn btn-sm pb-1">
+                  <button onClick={logOut} className="btn btn-sm pb-1 ">
                     Logout
                   </button>
                 </li>
