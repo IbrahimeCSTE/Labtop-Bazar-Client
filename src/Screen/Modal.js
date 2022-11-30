@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Modal = ({ modalData }) => {
   const rol = JSON.parse(localStorage.getItem("User"));
@@ -79,9 +80,17 @@ const Modal = ({ modalData }) => {
                   />
                 </div>
 
-                <button disabled={msg} className="btn btn-sm">
-                  Add
-                </button>
+                <div>
+                  {rol?.user ? (
+                    <button disabled={msg} className="btn my-2 btn-sm">
+                      Add
+                    </button>
+                  ) : (
+                    <Link to="/user/login" className="btn my-2 btn-sm">
+                      Login First
+                    </Link>
+                  )}
+                </div>
               </form>
             </div>
           </div>
