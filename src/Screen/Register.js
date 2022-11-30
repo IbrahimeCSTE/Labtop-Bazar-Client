@@ -31,19 +31,23 @@ const Register = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         updateUserProfile();
-        fetch("http://localhost:5000/api/user/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: user.email,
-            name,
-            rol,
-            password,
-            payment: false,
-          }),
-        })
+        fetch(
+          "https://server-i8icgxkha-ibrahimecste.vercel.app/api/user/register",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: user.email,
+              name,
+              rol,
+              password,
+              payment: false,
+              verified: false,
+            }),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.msg) {
@@ -74,18 +78,21 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        fetch("http://localhost:5000/api/user/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: user.email,
-            name: user.displayName,
-            payment: false,
-            rol: "buyer",
-          }),
-        })
+        fetch(
+          "https://server-i8icgxkha-ibrahimecste.vercel.app/api/user/register",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: user.email,
+              name: user.displayName,
+              payment: false,
+              rol: "buyer",
+            }),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.msg) {
@@ -200,7 +207,8 @@ const Register = () => {
                 Sign Up{" "}
               </button>
               <button onClick={handleGoogle} className="btn my-5">
-                <i className="fab text-white fa-2x fa-google-plus-g"></i>
+                <i className="fab ml-1 text-white fa-2x fa-google-plus-g"></i>
+                Google
               </button>
               <h1 className="font-semibold text-xl  my-5 text-center">
                 Already Registed?

@@ -9,6 +9,10 @@ import ForgetPass from "./Screen/ForgetPass";
 import Admin from "./Admin/Admin";
 import Seller from "./User/Seller";
 import Buyer from "./User/Buyer";
+import Category from "./Screen/Category";
+import Payment from "./Screen/Payment";
+import PrivateRouter from "./Component/Router/PrivateRouter";
+import Blog from "./Screen/Blog";
 
 function App() {
   const router = createBrowserRouter([
@@ -34,20 +38,61 @@ function App() {
           element: <Profile />,
         },
         {
+          path: "/blog",
+          element: <Blog />,
+        },
+        {
+          path: "/user/payment/:id",
+          element: (
+            <PrivateRouter>
+              <Payment />
+            </PrivateRouter>
+          ),
+        },
+        {
           path: "/user/password/reset",
-          element: <ForgetPass />,
+          element: (
+            <PrivateRouter>
+              <ForgetPass />
+            </PrivateRouter>
+          ),
         },
         {
           path: "/admin",
-          element: <Admin />,
+          element: (
+            <PrivateRouter>
+              <Admin />,
+            </PrivateRouter>
+          ),
+          // (
+          //   <PrivateRouter>
+
+          //   </PrivateRouter>
+          // ),
         },
         {
           path: "/seller",
-          element: <Seller />,
+          element: (
+            <PrivateRouter>
+              <Seller />
+            </PrivateRouter>
+          ),
         },
         {
           path: "/buyer",
-          element: <Buyer />,
+          element: (
+            <PrivateRouter>
+              <Buyer />
+            </PrivateRouter>
+          ),
+        },
+        {
+          path: "/category/:id",
+          element: (
+            <PrivateRouter>
+              <Category />
+            </PrivateRouter>
+          ),
         },
       ],
     },

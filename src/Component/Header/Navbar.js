@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link, redirect } from "react-router-dom";
 const Navbar = () => {
+  const [load, setLoad] = useState(false);
   const logOut = () => {
     localStorage.removeItem("User");
+    setLoad(true);
     redirect("/user/login");
   };
   const [user, setUser] = useState({});
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("User")));
-  }, []);
+  }, [load]);
 
   return (
     <div>
@@ -51,9 +53,9 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
             <i className="fas mx-2 fa-laptop-code"></i>Laptop Bazar
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -64,7 +66,7 @@ const Navbar = () => {
               <a>Product</a>
             </li>
             <li>
-              <a>Category</a>
+              <Link to="/blog">Blog</Link>
             </li>
           </ul>
         </div>

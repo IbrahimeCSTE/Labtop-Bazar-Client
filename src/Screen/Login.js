@@ -17,18 +17,27 @@ const Login = () => {
   const [loginRol, setLoginRol] = useState(false);
   const handleLogin = () => {
     setLoading(true);
+    if (!email && !password) {
+      toast.error("Enter email and password");
+      setLoading(false);
+      return;
+    }
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        fetch("http://localhost:5000/api/user/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: user.email,
-          }),
-        })
+
+        fetch(
+          "https://server-i8icgxkha-ibrahimecste.vercel.app/api/user/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: user.email,
+            }),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.msg) {
@@ -37,7 +46,7 @@ const Login = () => {
               setLoginRol(true);
               setEmail("");
               setPassword("");
-              window.document.location.href = "/";
+              // window.document.location.href = "/";
             }
             if (data.error) {
               toast.error(data.error);
@@ -47,6 +56,7 @@ const Login = () => {
       .catch((error) => {
         const errorMessage = error.message;
         toast.error(errorMessage);
+        setLoading(false);
       });
   };
   const handleGoogle = () => {
@@ -54,16 +64,19 @@ const Login = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
-        fetch("http://localhost:5000/api/user/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: user.email,
-            name: user.displayName,
-          }),
-        })
+        fetch(
+          "https://server-i8icgxkha-ibrahimecste.vercel.app/api/user/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: user.email,
+              name: user.displayName,
+            }),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.msg) {
@@ -93,7 +106,7 @@ const Login = () => {
     }
   }, [loginRol, rol]);
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-w-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           {loading ? (
@@ -141,7 +154,8 @@ const Login = () => {
                 Login
               </button>
               <button onClick={handleGoogle} className="btn my-5">
-                <i className="fab text-white fa-2x fa-google-plus-g"></i>
+                <i className="fab ml-1 text-white fa-2x fa-google-plus-g"></i>
+                Google
               </button>
               <h1 className="font-semibold text-xl  my-5 text-center">
                 New User?
