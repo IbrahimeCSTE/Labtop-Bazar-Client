@@ -8,6 +8,7 @@ import ReactCardFlip from "react-card-flip";
 import Footer from "../Component/Footer/Footer";
 import toast, { Toaster } from "react-hot-toast";
 import Faq from "./Faq";
+import CountUpComponent from "./CountUp";
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
@@ -71,6 +72,7 @@ const Home = () => {
   return (
     <div>
       <CarouselSlider />
+      <CountUpComponent />
       <Adsvertisement />
       <div>
         <div className="productHeader mx-10">

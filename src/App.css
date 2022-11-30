@@ -33,3 +33,6 @@
 .verifyIcon i{
   color: rgb(45, 3, 255);
 }
+.control-dots{
+  display: none;
+}
