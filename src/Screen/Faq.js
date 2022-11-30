@@ -7,7 +7,7 @@ const Faq = () => {
         <h1 className="my-2 text-xl font-bold">Frequently Asked Question</h1>
         <hr />
       </div>
-      <div className="my-5 max-w-screen-lg mx-auto w-full">
+      <div className="my-5 p-5 max-w-screen-lg mx-auto w-full">
         <div
           tabIndex={0}
           className="collapse my-3 collapse-plus border border-base-300 bg-base-100 rounded-box"
