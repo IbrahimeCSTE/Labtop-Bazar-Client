@@ -12,7 +12,7 @@ const Modal = ({ modalData }) => {
     e.preventDefault();
     if (buyerMobile) {
       const { data } = await axios.post(
-        "https://server-i8icgxkha-ibrahimecste.vercel.app/api/order",
+        "https://laptop-bazar.vercel.app/api/order",
         {
           ProductName: modalData?.name,
           ProductId: modalData?._id,

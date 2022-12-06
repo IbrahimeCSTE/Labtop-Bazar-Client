@@ -9,7 +9,7 @@ const CategoryAdmin = () => {
 
   const deleCategory = async (id) => {
     const { data } = await axios.delete(
-      `https://server-i8icgxkha-ibrahimecste.vercel.app/api/category/${id}`
+      `https://laptop-bazar.vercel.app/api/category/${id}`
     );
     toast.success(data.msg);
     setReLoder(true);
@@ -19,7 +19,7 @@ const CategoryAdmin = () => {
     const fetchData = async () => {
       setLoder(true);
       const { data } = await axios.get(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/category`
+        `https://laptop-bazar.vercel.app/api/category`
       );
       setCategory(data.category);
       setLoder(false);

@@ -26,18 +26,15 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
 
-        fetch(
-          "https://server-i8icgxkha-ibrahimecste.vercel.app/api/user/login",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: user.email,
-            }),
-          }
-        )
+        fetch("https://laptop-bazar.vercel.app/api/user/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: user.email,
+          }),
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.msg) {
@@ -64,19 +61,16 @@ const Login = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
-        fetch(
-          "https://server-i8icgxkha-ibrahimecste.vercel.app/api/user/login",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: user.email,
-              name: user.displayName,
-            }),
-          }
-        )
+        fetch("https://laptop-bazar.vercel.app/api/user/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: user.email,
+            name: user.displayName,
+          }),
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.msg) {

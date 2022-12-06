@@ -37,7 +37,7 @@ const Adsvertisement = () => {
     queryFn: async () => {
       setLoader(true);
       const res = await fetch(
-        "https://server-i8icgxkha-ibrahimecste.vercel.app/api/all-product"
+        "https://laptop-bazar.vercel.app/api/all-product"
       );
       const data = await res.json();
       setLoader(false);

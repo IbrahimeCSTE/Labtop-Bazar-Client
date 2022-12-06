@@ -5,7 +5,7 @@ const AddCategory = () => {
   const [category, setCategory] = useState("");
   const addCategory = async () => {
     const { data } = await axios.post(
-      "https://server-i8icgxkha-ibrahimecste.vercel.app/api/category",
+      "https://laptop-bazar.vercel.app/api/category",
       {
         category,
       }

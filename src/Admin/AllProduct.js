@@ -9,7 +9,7 @@ const AllProduct = () => {
 
   const deleteProduct = async (id) => {
     const { data } = await axios.delete(
-      `https://server-i8icgxkha-ibrahimecste.vercel.app/api/product/${id}`
+      `https://laptop-bazar.vercel.app/api/product/${id}`
     );
     if (data.msg) {
       toast.success(data.msg);
@@ -22,7 +22,7 @@ const AllProduct = () => {
     const fetchData = async () => {
       setLoader(true);
       const { data } = await axios.get(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/all-product`
+        `https://laptop-bazar.vercel.app/api/all-product`
       );
       setAllProduct(data.product);
       setLoader(false);

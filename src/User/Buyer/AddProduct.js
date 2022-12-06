@@ -43,11 +43,11 @@ const AddProduct = ({ setAddProduct, setMyProduct, setAddCategory }) => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        "https://server-i8icgxkha-ibrahimecste.vercel.app/api/category"
+        "https://laptop-bazar.vercel.app/api/category"
       );
       setProductCategory(data.category);
       // const updateLoginUser = await axios.get(
-      //   `https://server-i8icgxkha-ibrahimecste.vercel.app/api/all-user/${rol?.user._id}`
+      //   `https://laptop-bazar.vercel.app/api/all-user/${rol?.user._id}`
       // );
       // // console.log(updateLoginUser.data.user.verified);
       // rol.user["verified"] = updateLoginUser.data.user.verified;
@@ -73,7 +73,7 @@ const AddProduct = ({ setAddProduct, setMyProduct, setAddCategory }) => {
       return;
     }
     const { data } = await axios.post(
-      "https://server-i8icgxkha-ibrahimecste.vercel.app/api/product",
+      "https://laptop-bazar.vercel.app/api/product",
       {
         imgUrl,
         name,

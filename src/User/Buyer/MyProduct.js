@@ -10,7 +10,7 @@ const MyProduct = () => {
 
   const deleteProduct = async (id) => {
     const { data } = await axios.delete(
-      `https://server-i8icgxkha-ibrahimecste.vercel.app/api/product/${id}`
+      `https://laptop-bazar.vercel.app/api/product/${id}`
     );
     if (data.msg) {
       toast.success(data.msg);
@@ -21,7 +21,7 @@ const MyProduct = () => {
   };
   const adsHandle = async (id, ads) => {
     const { data } = await axios.patch(
-      `https://server-i8icgxkha-ibrahimecste.vercel.app/api/seller/ads/${id}`,
+      `https://laptop-bazar.vercel.app/api/seller/ads/${id}`,
       {
         ads,
       }
@@ -38,7 +38,7 @@ const MyProduct = () => {
       setLoder(true);
       const fetchData = async () => {
         const { data } = await axios.get(
-          `https://server-i8icgxkha-ibrahimecste.vercel.app/api/product/${rol.user._id}`
+          `https://laptop-bazar.vercel.app/api/product/${rol.user._id}`
         );
         setMyProduct(data?.product);
         setLoder(false);

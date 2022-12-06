@@ -31,23 +31,20 @@ const Register = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         updateUserProfile();
-        fetch(
-          "https://server-i8icgxkha-ibrahimecste.vercel.app/api/user/register",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: user.email,
-              name,
-              rol,
-              password,
-              payment: false,
-              verified: false,
-            }),
-          }
-        )
+        fetch("https://laptop-bazar.vercel.app/api/user/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: user.email,
+            name,
+            rol,
+            password,
+            payment: false,
+            verified: false,
+          }),
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.msg) {
@@ -78,21 +75,18 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        fetch(
-          "https://server-i8icgxkha-ibrahimecste.vercel.app/api/user/register",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: user.email,
-              name: user.displayName,
-              payment: false,
-              rol: "buyer",
-            }),
-          }
-        )
+        fetch("https://laptop-bazar.vercel.app/api/user/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: user.email,
+            name: user.displayName,
+            payment: false,
+            rol: "buyer",
+          }),
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.msg) {
@@ -197,7 +191,6 @@ const Register = () => {
                 <option disabled selected>
                   Your Role
                 </option>
-                <option value="admin">Admin</option>
                 <option value="buyer">Buyer</option>
                 <option value="seller">Seller</option>
               </select>

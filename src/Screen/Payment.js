@@ -12,7 +12,7 @@ const Payment = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/single/order/${id}`
+        `https://laptop-bazar.vercel.app/api/single/order/${id}`
       );
       setOrder(data.order);
     };

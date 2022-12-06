@@ -24,7 +24,7 @@ const Home = () => {
   const reportedItem = async (id) => {
     if (window.confirm("Do you want reported")) {
       const { data } = await axios.patch(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/user/report/${id}`
+        `https://laptop-bazar.vercel.app/api/user/report/${id}`
       );
       toast.success(data.msg);
       setReLoad(!loader);
@@ -35,7 +35,7 @@ const Home = () => {
     const fetchData = async () => {
       setLoder(true);
       const { data } = await axios.get(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/all-product`
+        `https://laptop-bazar.vercel.app/api/all-product`
       );
       if (sortProduct === "1") {
         setAllProduct(data?.product.reverse());
@@ -51,7 +51,7 @@ const Home = () => {
 
       setLoder(false);
       const res = await axios.get(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/category`
+        `https://laptop-bazar.vercel.app/api/category`
       );
       setCategory(res.data.category);
       //console.log(data?.product);

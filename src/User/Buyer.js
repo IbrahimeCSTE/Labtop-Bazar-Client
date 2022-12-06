@@ -12,7 +12,7 @@ const Buyer = () => {
 
   const deleteOrder = async () => {
     const { data } = await axios.delete(
-      `https://server-i8icgxkha-ibrahimecste.vercel.app/api/self-order/${rol?.user._id}`
+      `https://laptop-bazar.vercel.app/api/self-order/${rol?.user._id}`
     );
     toast.success(data.msg);
     setRefresh(true);
@@ -20,16 +20,13 @@ const Buyer = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoader(true);
-      fetch(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/self-order/${rol?.user._id}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `bearer ${rol?.token}`,
-          },
-        }
-      )
+      fetch(`https://laptop-bazar.vercel.app/api/self-order/${rol?.user._id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `bearer ${rol?.token}`,
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data.error) {

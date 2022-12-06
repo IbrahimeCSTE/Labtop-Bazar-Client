@@ -65,7 +65,7 @@ const CheckoutForm = ({ order }) => {
       // console.log("card info", card);
       // store payment info in the database
 
-      fetch("https://server-i8icgxkha-ibrahimecste.vercel.app/api/payments", {
+      fetch("https://laptop-bazar.vercel.app/api/payments", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -97,16 +97,13 @@ const CheckoutForm = ({ order }) => {
   useEffect(() => {
     // Create PaymentIntent
     if (soldPrice) {
-      fetch(
-        "https://server-i8icgxkha-ibrahimecste.vercel.app/api/create-payment-intent",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ soldPrice }),
-        }
-      )
+      fetch("https://laptop-bazar.vercel.app/api/create-payment-intent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ soldPrice }),
+      })
         .then((res) => res.json())
         .then((data) => {
           setClientSecret(data.clientSecret);

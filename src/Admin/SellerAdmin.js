@@ -10,7 +10,7 @@ const SellerAdmin = () => {
   const [loader, setLoader] = useState(false);
   const deleteSeller = async (id) => {
     const { data } = await axios.delete(
-      `https://server-i8icgxkha-ibrahimecste.vercel.app/api/all-seller/${id}`
+      `https://laptop-bazar.vercel.app/api/all-seller/${id}`
     );
     toast.success(data.msg);
     setReLoder(!reLoad);
@@ -19,7 +19,7 @@ const SellerAdmin = () => {
   const handleVerify = async (id, isVerify) => {
     // console.log(isVerify);
     const { data } = await axios.patch(
-      `https://server-i8icgxkha-ibrahimecste.vercel.app/api/all-seller/${id}`,
+      `https://laptop-bazar.vercel.app/api/all-seller/${id}`,
       {
         isVerify,
       }
@@ -36,7 +36,7 @@ const SellerAdmin = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoader(true);
-      fetch(`https://server-i8icgxkha-ibrahimecste.vercel.app/api/all-seller`, {
+      fetch(`https://laptop-bazar.vercel.app/api/all-seller`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

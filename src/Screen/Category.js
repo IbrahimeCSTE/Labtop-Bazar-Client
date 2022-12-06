@@ -15,7 +15,7 @@ const Category = () => {
     queryKey: ["product"],
     queryFn: async () => {
       const res = await fetch(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/category/${id}`
+        `https://laptop-bazar.vercel.app/api/category/${id}`
       );
       const data = await res.json();
       return data.product;

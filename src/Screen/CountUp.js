@@ -8,15 +8,15 @@ const CountUpComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await axios.get(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/all-product`
+        `https://laptop-bazar.vercel.app/api/all-product`
       );
       setProduct(data?.product);
       const buyer = await axios.get(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/all-buyer`
+        `https://laptop-bazar.vercel.app/api/all-buyer`
       );
       setBuyer(buyer?.data?.buyer);
       const res = await axios.get(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/category`
+        `https://laptop-bazar.vercel.app/api/category`
       );
       setCategory(res.data.category);
     };

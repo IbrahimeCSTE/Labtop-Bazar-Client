@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [load, setLoad] = useState(false);
   const logOut = () => {
     localStorage.removeItem("User");
     setLoad(true);
-    redirect("/user/login");
+    window.document.location.href = "/user/login";
   };
   const [user, setUser] = useState({});
   useEffect(() => {

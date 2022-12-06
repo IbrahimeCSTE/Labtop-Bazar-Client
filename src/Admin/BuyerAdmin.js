@@ -9,7 +9,7 @@ const BuyerAdmin = () => {
 
   const deleteBuyer = async (id) => {
     const { data } = await axios.delete(
-      `https://server-i8icgxkha-ibrahimecste.vercel.app/api/all-buyer/${id}`
+      `https://laptop-bazar.vercel.app/api/all-buyer/${id}`
     );
     toast.success(data.msg);
     setReLoder(!reLoad);
@@ -20,7 +20,7 @@ const BuyerAdmin = () => {
     const fetchData = async () => {
       setLoder(true);
       const { data } = await axios.get(
-        `https://server-i8icgxkha-ibrahimecste.vercel.app/api/all-buyer`
+        `https://laptop-bazar.vercel.app/api/all-buyer`
       );
       setBuyer(data.buyer);
       //console.log(data);
